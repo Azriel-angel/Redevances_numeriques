@@ -1,0 +1,235 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Redevances numériques Le Bossé</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,650&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: one column; settings strip, market tabs, wide royalty table in its own scroller, notes below */
+:root{
+  --bg:#f5f7f7; --surface:#ffffff; --fg:#1b2426; --muted:#5b6b6e; --line:#d9e1e2;
+  --accent:#1f5e63; --accent-soft:#e3eff0; --warn:#9a5a00; --warn-soft:#fbefdc; --good:#2f6b3a;
+  --display:"Literata", Georgia, "Times New Roman", serif;
+  --body:"Public Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111617; --surface:#182022; --fg:#e3e9ea; --muted:#97a7aa; --line:#2b3638;
+  --accent:#7cc0c5; --accent-soft:#1c3336; --warn:#f0b35a; --warn-soft:#3a2c17; --good:#8fcf98; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111617; --surface:#182022; --fg:#e3e9ea; --muted:#97a7aa; --line:#2b3638;
+  --accent:#7cc0c5; --accent-soft:#1c3336; --warn:#f0b35a; --warn-soft:#3a2c17; --good:#8fcf98; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding-block:28px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:28px}
+h1{font-family:var(--display);font-weight:650;font-size:clamp(26px,4vw,36px);line-height:1.15;margin:0;text-wrap:balance}
+h2{font-family:var(--display);font-weight:500;font-size:21px;margin:0 0 10px;text-wrap:balance}
+.lede{color:var(--muted);max-width:68ch;margin:8px 0 0}
+.label{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+.settings{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px}
+.settings label{display:grid;gap:4px;font-size:13px;color:var(--muted)}
+input[type=number]{font:inherit;font-variant-numeric:tabular-nums;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:6px 8px;width:100%;box-sizing:border-box}
+input[type=number]:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tabs button{font:inherit;font-weight:600;border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:8px 14px;border-radius:999px;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.marketnote{color:var(--muted);font-size:13px;margin:10px 0 0;max-width:80ch}
+.scroller{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:900px;font-variant-numeric:tabular-nums}
+th,td{padding:10px 12px;text-align:right;border-bottom:1px solid var(--line);vertical-align:middle}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:600;background:var(--surface);position:sticky;top:0}
+th small{display:block;text-transform:none;letter-spacing:0;font-weight:400}
+.fmtrow th{position:static;text-transform:none;letter-spacing:0;font-size:12.5px;color:var(--accent);background:var(--accent-soft);padding-block:7px}
+.fmtrow th:first-child{color:var(--muted)}
+td:first-child,th:first-child{text-align:left}
+td.title{min-width:220px}
+td.title b{font-weight:600;display:block}
+td.price input{width:86px;text-align:right}
+td.ref{color:var(--muted)}
+.rate{display:block;font-size:11.5px;color:var(--muted)}
+.rate.low{color:var(--warn);font-weight:600}
+td.best{background:var(--accent-soft)}
+tbody tr:last-child td{border-bottom:0}
+.flag{display:inline-block;font-size:11.5px;background:var(--warn-soft);color:var(--warn);border-radius:4px;padding:1px 6px;margin-top:3px}
+.ratio{color:var(--good);font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px}
+.card h3{font-size:15px;margin:0 0 6px}
+.card p,.card li{font-size:14px;color:var(--muted);margin:0}
+.card ul{margin:6px 0 0;padding-left:18px;display:grid;gap:4px}
+.rates{width:100%;min-width:620px}
+.rates td,.rates th{text-align:left}
+.sources a{color:var(--accent)}
+.sources li{font-size:13.5px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="label">Simulation · ebooks · Yann Le Bossé · Ardis</div>
+    <h1>Ce que rapporte chaque ebook vendu, par plateforme</h1>
+    <p class="lede">Redevance nette versée à l'auteur-éditeur pour <strong>un exemplaire numérique vendu</strong> en autoédition directe. Les prix ebook sont des propositions : modifiez-les dans le tableau, tout se recalcule. La dernière colonne compare avec ce que rapporte un exemplaire papier.</p>
+  </header>
+
+  <section aria-labelledby="h-param">
+    <h2 id="h-param">Paramètres</h2>
+    <div class="settings">
+      <label for="p-size">Taille du fichier ebook (Mo)<input id="p-size" type="number" step="0.1" min="0" value="2"></label>
+      <label for="p-print">Redevance papier actuelle (% du prix HT)<input id="p-print" type="number" step="0.5" min="0" value="10"></label>
+      <label for="p-fx">Taux de change 1 € = … $ CA<input id="p-fx" type="number" step="0.01" min="0" value="1.60"></label>
+      <label for="p-vfr">TVA ebook France (%)<input id="p-vfr" type="number" step="0.1" min="0" value="5.5"></label>
+      <label for="p-vbe">TVA ebook Belgique (%)<input id="p-vbe" type="number" step="0.1" min="0" value="6"></label>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-table">
+    <h2 id="h-table">Redevance par exemplaire vendu</h2>
+    <div class="tabs" role="tablist" aria-label="Marché">
+      <button role="tab" id="t-fr" aria-selected="true" data-m="fr">France</button>
+      <button role="tab" id="t-be" aria-selected="false" data-m="be">Belgique</button>
+      <button role="tab" id="t-ca" aria-selected="false" data-m="ca">Canada</button>
+    </div>
+    <p class="marketnote" id="mnote"></p>
+    <div class="scroller" style="margin-top:12px">
+      <table id="tbl" aria-describedby="mnote">
+        <thead><tr>
+          <th>Livre</th>
+          <th>Prix papier</th>
+          <th>Prix ebook<small>TTC, modifiable</small></th>
+          <th>Amazon Kindle<small>KDP</small></th>
+          <th>Kobo<small>Writing Life</small></th>
+          <th>Fnac<small>via Kobo</small></th>
+          <th>Apple Books</th>
+          <th>Google Play</th>
+          <th>Papier<small>par exemplaire</small></th>
+        </tr>
+        <tr class="fmtrow">
+          <th colspan="3">Formats acceptés</th>
+          <th>EPUB, DOCX ou KPF</th>
+          <th>EPUB, DOCX ou ODT</th>
+          <th>comme Kobo</th>
+          <th>EPUB ou Pages</th>
+          <th>EPUB ou PDF</th>
+          <th>–</th>
+        </tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <p class="marketnote">Formats : l'EPUB est accepté partout, c'est le fichier à préparer en priorité. Chaque plateforme demande aussi une couverture séparée en JPEG (idéalement 1600 × 2560 pixels). Case surlignée : plateforme la plus rémunératrice pour ce livre. En orange : le taux tombe à 35 % (Amazon) ou 45 % (Kobo) parce que le prix sort de la fourchette autorisée.</p>
+  </section>
+
+  <section aria-labelledby="h-rules">
+    <h2 id="h-rules">Les règles de calcul</h2>
+    <div class="scroller">
+      <table class="rates">
+        <thead><tr><th>Plateforme</th><th>Taux</th><th>Conditions</th><th>Base de calcul</th></tr></thead>
+        <tbody>
+          <tr><td><b>Amazon KDP</b></td><td>70 % ou 35 %</td><td>70 % si prix entre 2,69 € et 12,99 € (2,99 à 12,99 $ CA) <em>et</em> au moins 20 % sous le prix papier sur Amazon. Sinon 35 %.</td><td>Prix HT moins frais de livraison (0,12 €/Mo ; 0,15 $ CA/Mo), sur l'option 70 % seulement</td></tr>
+          <tr><td><b>Kobo Writing Life</b></td><td>70 % ou 45 %</td><td>70 % dès 1,99 € (2,99 $ CA). En dessous, 45 %.</td><td>Prix HT</td></tr>
+          <tr><td><b>Fnac</b></td><td>comme Kobo</td><td>La librairie numérique Fnac est alimentée par Kobo : un livre publié sur Kobo Writing Life y est diffusé.</td><td>Prix HT</td></tr>
+          <tr><td><b>Apple Books</b></td><td>70 %</td><td>Pas de fourchette de prix.</td><td>Prix HT</td></tr>
+          <tr><td><b>Google Play Livres</b></td><td>70 %</td><td>Après acceptation des conditions 2019 dans le Partner Center (sinon 52 %). Pas de fourchette de prix.</td><td>Prix HT</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="cards" aria-label="À savoir">
+    <div class="card"><h3>Prix unique en France</h3><p>La loi du 26 mai 2011 impose un prix unique du livre numérique : c'est l'éditeur qui fixe le prix, identique chez tous les revendeurs pour les acheteurs en France. Les promotions doivent donc être appliquées partout en même temps.</p></div>
+    <div class="card"><h3>Le piège des 12,99</h3><p>Au-delà de 12,99 € ou 12,99 $ CA, le livre reste en vente sur Amazon, mais Amazon ne verse plus que 35 %, alors que Kobo, Apple et Google restent à 70 %. À 19,99 €, Amazon rapporte environ 6,63 € par vente, soit moins qu'à 12,99 € (environ 8,45 €).</p></div>
+    <div class="card"><h3>Autres territoires francophones</h3><ul>
+      <li><b>Suisse</b> : vente en CHF, TVA ebook 2,6 %. Amazon y verse 70 % dans les mêmes conditions.</li>
+      <li><b>Afrique francophone, Haïti…</b> : la plupart de ces pays ne sont pas dans la liste « 70 % » d'Amazon, qui verse alors 35 %. Kobo, Apple et Google y restent en général à 70 %.</li>
+    </ul></div>
+    <div class="card"><h3>Avant de publier</h3><ul>
+      <li>Vérifier qui détient les <b>droits numériques</b> (contrat avec Ardis).</li>
+      <li>Option <b>KDP Select</b> (Kindle Unlimited) : exclusivité Amazon par périodes de 90 jours, incompatible avec Kobo, Fnac, Apple et Google.</li>
+      <li>Un distributeur comme Draft2Digital publie partout en une fois, contre environ 10 % du prix de vente.</li>
+    </ul></div>
+  </section>
+
+  <section class="sources">
+    <h2>Hypothèses et sources</h2>
+    <p class="marketnote" style="margin-top:0">Prix papier relevés sur ardiscanada.ca le 1er novembre 2026. Prix canadiens considérés hors taxes (TPS/TVQ ajoutées à la caisse). La redevance papier de référence est une hypothèse à remplacer par celle de son contrat. Taux et conditions à revérifier au moment de publier.</p>
+    <ul>
+      <li><a href="https://ardiscanada.ca/nos-publications" target="_blank" rel="noopener">Ardis – Nos publications</a></li>
+      <li><a href="https://kdp.amazon.com/fr_FR/help/topic/G200634560" target="_blank" rel="noopener">KDP – Options de redevances</a> · <a href="https://kdp.amazon.com/fr_FR/help/topic/G200634500" target="_blank" rel="noopener">KDP – Redevances eBook (frais de livraison, règle des 20 %)</a></li>
+      <li><a href="https://www.writtenwordmedia.com/how-to-self-publish-on-kobo/" target="_blank" rel="noopener">Written Word Media – Kobo Writing Life</a></li>
+      <li><a href="https://support.google.com/books/partner/answer/9331459?hl=fr" target="_blank" rel="noopener">Google Play Livres – Partage des revenus</a></li>
+      <li><a href="https://scribecount.com/author-resource/publishing-wide/apple-books-for-indie-authors" target="_blank" rel="noopener">ScribeCount – Apple Books</a></li>
+    </ul>
+  </section>
+</div>
+
+<script>
+const BOOKS=[
+  {t:"Accueillir sans recueillir",print:19,eur:12.99,cad:12.99},
+  {t:"Soutenir sans prescrire",print:19,eur:12.99,cad:12.99},
+  {t:"Sortir de l'impuissance",s:"Tome I : Aspects conceptuels",print:30,eur:19.99,cad:12.99},
+  {t:"Sortir de l'impuissance",s:"Tome II : Aspects pratiques",print:28,eur:19.99,cad:12.99},
+  {t:"Sortir de l'impuissance",s:"Tome III : Aspects empiriques",print:31,eur:19.99,cad:12.99},
+  {t:"Psychosociologie des sciences de l'orientation",print:null,eur:19.99,cad:12.99},
+  {t:"Introduction à la psychosociologie contemporaine",print:null,eur:19.99,cad:12.99}
+];
+const NOTES={
+  fr:"France : prix en euros TTC, TVA ebook 5,5 % retirée avant calcul. Prix papier : TVA livre 5,5 %.",
+  be:"Belgique : mêmes prix en euros, TVA ebook 6 % retirée avant calcul. Prix papier : TVA livre 6 %.",
+  ca:"Canada : prix en dollars canadiens, hors taxes. Prix papier converti depuis l'euro avec le taux de change ci-dessus. Attention, Amazon.ca plafonne l'option 70 % à 12,99 $ CA."
+};
+let market="fr";
+const $=id=>document.getElementById(id);
+const num=id=>{const v=parseFloat($(id).value);return isNaN(v)?0:v};
+const fmt=(v,cur)=>new Intl.NumberFormat(cur==="CAD"?"fr-CA":"fr-FR",{style:"currency",currency:cur}).format(v);
+
+function calc(b,price){
+  const ca=market==="ca", cur=ca?"CAD":"EUR";
+  const vat=ca?0:(market==="fr"?num("p-vfr"):num("p-vbe"))/100;
+  const ht=price/(1+vat);
+  const printLocal=b.print==null?null:(ca?b.print*num("p-fx"):b.print);
+  // Amazon
+  const min=ca?2.99:2.69, max=12.99, fee=(ca?0.15:0.12)*num("p-size");
+  const below20=printLocal==null||price<=printLocal*0.8+1e-9;
+  const inRange=price>=min&&price<=max;
+  const amz70=inRange&&below20;
+  const amz=amz70?0.7*Math.max(ht-fee,0):0.35*ht;
+  let amzWhy="";
+  if(!inRange) amzWhy=price>max?"prix > 12,99":"prix trop bas";
+  else if(!below20) amzWhy="pas 20 % sous le papier";
+  // Kobo/Fnac
+  const kthr=ca?2.99:1.99, k70=price>=kthr, kobo=(k70?0.7:0.45)*ht;
+  const apple=0.7*ht, google=0.7*ht;
+  const paper=printLocal==null?null:(printLocal/(1+vat))*num("p-print")/100;
+  return {cur,amz,amz70,amzWhy,kobo,k70,apple,google,paper,printLocal};
+}
+
+function render(){
+  const tb=$("rows"); tb.innerHTML="";
+  BOOKS.forEach((b,i)=>{
+    const key=market==="ca"?"cad":"eur";
+    const r=calc(b,b[key]);
+    const vals=[r.amz,r.kobo,r.kobo,r.apple,r.google];
+    const best=Math.max(...vals);
+    const tr=document.createElement("tr");
+    const cell=(v,rate,low,extra="")=>`<td class="${Math.abs(v-best)<0.005?"best":""}">${fmt(v,r.cur)}<span class="rate${low?" low":""}">${rate}</span>${extra}</td>`;
+    const ratio=r.paper?`<span class="rate ratio">ebook ≈ ×${(best/r.paper).toFixed(1)}</span>`:"";
+    tr.innerHTML=`
+      <td class="title"><b>${b.t}</b>${b.s?`<span class="rate">${b.s}</span>`:""}</td>
+      <td class="ref">${r.printLocal==null?"<span class=rate>non indiqué</span>":fmt(r.printLocal,r.cur)}</td>
+      <td class="price"><input type="number" id="pr-${market}-${i}" step="0.5" min="0" value="${b[key]}" aria-label="Prix ebook ${b.t} ${b.s||""}"></td>
+      ${cell(r.amz,r.amz70?"70 %":"35 %",!r.amz70,r.amz70?"":`<br><span class="flag">${r.amzWhy}</span>`)}
+      ${cell(r.kobo,r.k70?"70 %":"45 %",!r.k70)}
+      ${cell(r.kobo,r.k70?"70 %":"45 %",!r.k70)}
+      ${cell(r.apple,"70 %",false)}
+      ${cell(r.google,"70 %",false)}
+      <td class="ref">${r.paper==null?"–":fmt(r.paper,r.cur)}${ratio}</td>`;
+    tb.appendChild(tr);
+    tr.querySelector("input").addEventListener("change",e=>{const v=parseFloat(e.target.value);if(!isNaN(v)){b[key]=v;render();}});
+  });
+  $("mnote").textContent=NOTES[market];
+}
+document.querySelectorAll(".tabs button").forEach(btn=>btn.addEventListener("click",()=>{
+  market=btn.dataset.m;
+  document.querySelectorAll(".tabs button").forEach(x=>x.setAttribute("aria-selected",x===btn?"true":"false"));
+  render();
+}));
+document.querySelectorAll(".settings input").forEach(inp=>inp.addEventListener("input",render));
+render();
+</script>
+
+</body></html>
